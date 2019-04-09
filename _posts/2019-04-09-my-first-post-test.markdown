@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "내 첫 번째 포스트"
+title:  "Welcome to Jekyll!"
 date:   2019-04-09 16:24:00 +0900
-categories: life test
+categories: jekyll update
 
 ---
 
@@ -18,5 +18,12 @@ def print_hi(name)
 end
 print_hi('Tom')
 
-# 첫 포스트 입니다. 테스트
+# => prints 'Hi, Tom' to STDOUT.
 
+{% endhighlight %}
+
+Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
+
+[jekyll-docs]: https://jekyllrb.com/docs/home
+[jekyll-gh]: https://github.com/jekyll/jekyll
+[jekyll-talk]: https://talk.jekyllrb.com/
