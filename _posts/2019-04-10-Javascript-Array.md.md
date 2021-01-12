@@ -20,7 +20,7 @@ const arr = Array.prototype.slice.call(arrLike);
 ```javascript
 const arrLike = document.getElementsByTagName('div');
 let arr = [...arrLike]; // iterable할 경우에 
-arr = Array.from();
+arr = Array.from(arrLike);
 ```
 
 
