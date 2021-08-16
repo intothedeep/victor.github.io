@@ -10,7 +10,6 @@ import { store } from './app/store';
 import { history } from './modules'
 import './index.css';
 
-
 ReactDOM.render(
   <React.StrictMode>
     <HelmetProvider>

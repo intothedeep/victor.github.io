@@ -1,18 +1,19 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Route, Switch, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { ThemeProvider } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
-import PageNotFound from './pages/404/PageNotFound';
-import CounterPage from './pages/CounterPage';
-import HomePage from './pages/HomePage';
-import HousePage from './pages/HousePage';
+import MainRouter from './MainRouter';
+import useSystemTheme from './app/hooks/useSystemTheme';
 
 
 function App() {
+  const { theme } = useSystemTheme()
   return (
     <React.Fragment>
       <Helmet>
-        <title>velog</title>
+        <title>prettylog</title>
         <meta name="description" content="기술 블로그 고민하지 말고 오세요!" />
         {/* <meta property="fb:app_id" content="203040656938507" /> */}
         {/* <meta property="og:image" content="https://images.velog.io/velog.png" /> */}
@@ -31,18 +32,18 @@ function App() {
             <li>
               <Link to="/counter" >counter</Link>
             </li>
+            
+            <li>
+              <Link to="/login" >로그인</Link>
+            </li>
           </ul>
         </nav>
       </header>
-      <Switch>
-        <Route path="/" component={HomePage} exact />
-        <Route path="/@:username" component={HousePage} />
 
-
-
-        <Route path={'/counter'} component={CounterPage} />
-        <Route component={PageNotFound} />
-      </Switch>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <MainRouter />
+      </ThemeProvider>
     </React.Fragment>
   );
 }
