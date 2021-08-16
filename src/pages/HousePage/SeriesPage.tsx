@@ -11,9 +11,9 @@ export default function SeriesPage({ match }: SeriesPageProps): ReactElement {
     const { username, urlSlug } = match.params;
 
     return (
-        <div>
+        <>
             시리즈
             페이지 {username} {urlSlug}
-        </div>
+        </>
     )
 }

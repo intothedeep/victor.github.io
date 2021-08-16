@@ -1,13 +1,10 @@
 import React, { ReactElement } from 'react'
 
-interface Props {
-    
-}
 
-export default function UserPage({}: Props): ReactElement {
+export default function UserPage(): ReactElement {
     return (
-        <div>
-            글 목록, 카테고리, 태그
-        </div>
+        <>
+            <div>글 목록, 카테고리, 태그</div>
+        </>
     )
 }

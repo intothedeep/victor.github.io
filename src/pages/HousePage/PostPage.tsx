@@ -11,8 +11,8 @@ export default function PostPage({ match }: PostPageProps): ReactElement {
     const { username, urlSlug } = match.params;
 
     return (
-        <div>
+        <>
             포스트 페이지 {username} {urlSlug}
-        </div>
+        </>
     )
 }
