@@ -32,9 +32,9 @@ function App() {
             <li>
               <Link to="/counter" >counter</Link>
             </li>
-            
+
             <li>
-              <Link to="/login" >로그인</Link>
+              <Link to="/signin" >로그인</Link>
             </li>
           </ul>
         </nav>

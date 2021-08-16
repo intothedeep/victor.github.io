@@ -16,3 +16,15 @@ export default function useSystemTheme() {
 
     return { theme };
 }
+
+// use this function to check system darkmode change other than useMediaQuery
+// function setDarkLightModeChangeEventOnWindow() {
+//     let theme;
+//     window
+//         .matchMedia('(prefers-color-scheme: dark)')
+//         .addEventListener('change', (e) => {
+//             var isDark = e.matches;
+//             theme = isDark ? 'dark' : 'light'
+//         });
+//     return theme
+// }

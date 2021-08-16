@@ -1,10 +1,11 @@
 import React, { ReactElement } from 'react'
+import Blog from '../../components/blog/Blog'
 
 
 export default function UserPage(): ReactElement {
     return (
         <>
-            <div>글 목록, 카테고리, 태그</div>
+            <Blog />
         </>
     )
 }

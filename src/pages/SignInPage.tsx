@@ -25,7 +25,7 @@ function Copyright(props: any) {
     );
 }
 
-export default function LogInPage() {
+export default function SignInPage() {
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
