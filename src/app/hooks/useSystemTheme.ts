@@ -1,9 +1,21 @@
-import { createTheme, useMediaQuery } from '@material-ui/core';
 import React from 'react';
+import { createTheme, useMediaQuery } from '@material-ui/core';
+// import { dark, light } from '../lib/theme';
 
 export default function useSystemTheme() {
 	const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
 
+    // TODO: theme 전체 바꾸기
+	// const theme = React.useMemo(
+	// 	() => {
+    //         const which: Object = prefersDarkMode ? { ...dark } : { ...light }
+    //         console.log('hooks', which);
+	// 		return createTheme(which)
+    //     },
+	// 	[prefersDarkMode]
+	// );
+
+    // TODO: mode만 바꾸기
 	const theme = React.useMemo(
 		() =>
 			createTheme({
@@ -13,6 +25,7 @@ export default function useSystemTheme() {
 			}),
 		[prefersDarkMode]
 	);
+    console.log('theme: ', theme)
 
     return { theme };
 }

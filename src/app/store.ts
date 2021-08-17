@@ -12,11 +12,18 @@ const preloadedState = { counter: preloadedCounterState };
 
 const sagaMiddleware = createSagaMiddleware();
 const createStore = () => {
+  const isProduction: boolean = process.env.NODE_ENV !== 'production';
+  const middlewares = ((flag: boolean) => {
+    const arr = [routerMiddleware(history), sagaMiddleware];
+    flag && arr.push(logger);
+    return arr;
+  })(isProduction)
+
   const store = configureStore({
     // reducer,
     reducer: rootReducer,
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat([logger, routerMiddleware(history), sagaMiddleware]),
-    devTools: process.env.NODE_ENV !== 'production',
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(middlewares),
+    devTools: isProduction,
     preloadedState,
     enhancers: [
       // reduxBatch
