@@ -87,7 +87,9 @@ export default function Blog() {
   const [texts, setTexts] = React.useState([] as any);
   React.useEffect( () => {
     async function fetchData() {
-      const res = await Promise.all(posts.map(p => fetch(p).then(res => res.text())));
+      const res = await Promise.all(
+        posts.map(p => fetch(p).then(res => res.text()))
+        );
       setTexts(res);
     }
     fetchData();
@@ -100,12 +102,18 @@ export default function Blog() {
       <Container maxWidth="lg">
         <Header title="Blog" sections={sections} />
         <main>
+          
+          {/* 메인 포스트 */}
           <MainFeaturedPost post={mainFeaturedPost} />
+          
+          {/* 다음 작은 포스트 2개 */}
           <Grid container spacing={4}>
             {featuredPosts.map((post) => (
               <FeaturedPost key={post.title} post={post} />
             ))}
           </Grid>
+
+          {/* 바디*/}
           <Grid container spacing={5} sx={{ mt: 3 }}>
             <Main title="From the firehose" posts={texts} />
             <Sidebar

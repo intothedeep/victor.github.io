@@ -34,21 +34,21 @@ export default function MainPage() {
     return (
         <React.Fragment>
             <CssBaseline />
-            <AppBar position="relative">
+            {/* <AppBar position="relative">
                 <Toolbar>
                     <CameraIcon sx={{ mr: 2 }} />
                     <Typography variant="h6" color="inherit" noWrap>
                         Album layout
                     </Typography>
                 </Toolbar>
-            </AppBar>
+            </AppBar> */}
             <main>
                 {/* Hero unit */}
-                <Box
+                {/* <Box
                     sx={{
                         bgcolor: 'background.paper',
-                        pt: 8,
-                        pb: 6,
+                        pt: 2,
+                        pb: 1,
                     }}
                 >
                     <Container maxWidth="sm">
@@ -59,24 +59,10 @@ export default function MainPage() {
                             color="text.primary"
                             gutterBottom
                         >
-                            Album layout
+                            latest
                         </Typography>
-                        <Typography variant="h5" align="center" color="text.secondary" paragraph>
-                            Something short and leading about the collection below—its contents,
-                            the creator, etc. Make it short and sweet, but not too short so folks
-                            don&apos;t simply skip over it entirely.
-                        </Typography>
-                        <Stack
-                            sx={{ pt: 4 }}
-                            direction="row"
-                            spacing={2}
-                            justifyContent="center"
-                        >
-                            <Button variant="contained">Main call to action</Button>
-                            <Button variant="outlined">Secondary action</Button>
-                        </Stack>
                     </Container>
-                </Box>
+                </Box> */}
                 <Container sx={{ py: 8 }} maxWidth="md">
                     {/* End hero unit */}
                     <Grid container spacing={4}>

@@ -1,23 +1,23 @@
 import React, { ReactElement } from 'react';
 import { Route, Switch } from 'react-router';
 
-import PageNotFound from './pages/ErrorPage/PageNotFound';
-import CounterPage from './pages/CounterPage';
-import HousePage from './pages/HousePage';
-import SignInPage from './pages/SignInPage';
-import MainPage from './pages/MainPage';
-import SignUpPage from './pages/SignUpPage';
-import * as Page from './pages/ErrorPage';
+
+import { 
+    PageNotFound, 
+    CounterPage, 
+    HomePage, 
+    HousePage, 
+    SignInPage,
+    SignUpPage
+} from './pages';
 
 export default function MainRouter(): ReactElement {
-    console.log('Page', Page);
     return (
         <Switch>
-            <Route path="/" component={MainPage} exact />
+            <Route path="/" component={HomePage} exact />
             <Route path="/@:username" component={HousePage} />
             <Route path="/signin" component={SignInPage} />
             <Route path="/signup" component={SignUpPage} />
-
 
             <Route path={'/counter'} component={CounterPage} />
             <Route component={PageNotFound} />

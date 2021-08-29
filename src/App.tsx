@@ -6,18 +6,27 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 
 import MainRouter from './MainRouter';
 import useSystemTheme from './app/hooks/useSystemTheme';
+import SearchAppBar from './components/SearchAppBar';
+import { Toolbar } from '@material-ui/core';
 
 
 function App() {
-  const { theme } = useSystemTheme()
+  const { theme } = useSystemTheme();
   return (
     <React.Fragment>
+
       <Helmet>
         <title>prettylog</title>
         <meta name="description" content="기술 블로그 고민하지 말고 오세요!" />
         {/* <meta property="fb:app_id" content="203040656938507" /> */}
         {/* <meta property="og:image" content="https://images.velog.io/velog.png" /> */}
       </Helmet>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <SearchAppBar />
+        {/* TODO: delete */}
+        <Toolbar />
+
       <header>
         <nav>
           <ul>
@@ -43,8 +52,6 @@ function App() {
         </nav>
       </header>
 
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
         <MainRouter />
       </ThemeProvider>
     </React.Fragment>
