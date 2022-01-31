@@ -1,7 +1,9 @@
 import React, { ReactElement } from 'react'
+import { Helmet } from 'react-helmet-async';
 
 import { RouteComponentProps } from 'react-router';
 import { useParams } from 'react-router-dom';
+import PostContent from './PostContent';
 
 export interface PostPageProps extends RouteComponentProps<{
     username: string;
@@ -15,8 +17,16 @@ export default function PostPage(): ReactElement {
 
     return (
         <>
-            포스트 페이지
-            {/* {username} {urlSlug} */}
+            <Helmet></Helmet>
+            {/* <GoodBadWidget />
+            <PostHeader />
+            <TableOfContents /> */}
+            <PostContent />
+            {/* <UserInfoBlock />
+            <ShareButtonsBlock />
+            <PrevNextPosts />
+            <RelatedPosts />
+            <Comment /> */}
         </>
     )
 }
