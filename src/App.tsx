@@ -1,58 +1,62 @@
 import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
+
+import { Helmet } from 'react-helmet-async';
+import { CssBaseline, ThemeProvider, Toolbar } from '@mui/material';
+import { Link } from 'react-router-dom';
+
+import useSystemTheme from './hooks/useSystemTheme';
+import MainRouter from './MainRouter';
+
 import './App.css';
+import SearchAppBar from './components/SearchAppBar';
 
 function App() {
+  const { theme } = useSystemTheme();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
+    <>
+      <Helmet>
+        <title>prettylog</title>
+        <meta name="description" content="기술 블로그 고민하지 말고 오세요!" />
+        {/* <meta property="fb:app_id" content="203040656938507" /> */}
+        {/* <meta property="og:image" content="https://images.velog.io/velog.png" /> */}
+      </Helmet>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <SearchAppBar />
+        {/* TODO: delete */}
+        <Toolbar />
+        <header>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/" >home</Link>
+              </li>
+
+              <li>
+                <Link to="/@victor" >하우스</Link>
+              </li>
+
+              <li>
+                <Link to="/counter" >counter</Link>
+              </li>
+
+              <li>
+                <Link to="/signin" >로그인</Link>
+              </li>
+              <li>
+                <Link to="/signup" >회원가입</Link>
+              </li>
+            </ul>
+          </nav>
+        </header>
+        <MainRouter />
+      </ThemeProvider>
+    </>
   );
 }
+
+App.defaultProps = {
+  test: 'test',
+};
 
 export default App;
