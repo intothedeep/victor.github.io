@@ -3,12 +3,36 @@ import * as React from 'react';
 import ReactMarkdown from 'react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
+
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
+
+import remarkHeadingId from 'remark-heading-id';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+
+
+
+import rehypeSanitize from 'rehype-sanitize';
+import rehypeHighlight from 'rehype-highlight';
 
 function Markdown(props: any) {
-  const { children } = props;
+  const { md } = props;
 
   return <ReactMarkdown
-    children={children}
+    remarkPlugins={[
+      remarkGfm,
+      remarkMath,
+      remarkHeadingId,
+    ]}
+    rehypePlugins={[
+      rehypeRaw,
+      rehypeKatex,
+      rehypeAutolinkHeadings,
+      // rehypeHighlight,
+      // rehypeSanitize,
+    ]}
     components={{
       code({ node, inline, className, children, ...props }) {
         const match = /language-(\w+)/.exec(className || '');
@@ -27,7 +51,8 @@ function Markdown(props: any) {
         )
       }
     }}
-  />
+  >{md}</ReactMarkdown>
+
 
 }
 

@@ -16,9 +16,9 @@ export default function MainRouter(): ReactElement {
             <Route path="/@:username/*" element={<HousePage />} />
             <Route path="/signin" element={<SignInPage />} />
             <Route path="/signup" element={<SignUpPage />} />
-            <Route path={'/counter'} element={<CounterPage />} />
+            <Route path='/counter' element={<CounterPage />} />
             <Route path="/" element={<HomePage />} />
-            <Route element={<PageNotFound />} />
+            <Route path="*" element={<PageNotFound />} />
         </Routes>
     )
 }

@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Helmet } from 'react-helmet-async';
 import { CssBaseline, ThemeProvider, Toolbar } from '@mui/material';
+import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 
 import useSystemTheme from './hooks/useSystemTheme';
@@ -9,6 +10,15 @@ import MainRouter from './MainRouter';
 
 import './App.css';
 import SearchAppBar from './components/SearchAppBar';
+
+const StyledContainer = styled.div`
+  height: 100px;
+  width: 100px;
+  border: 2px solid green;
+  background-color: grey;
+
+  @media
+`;
 
 function App() {
   const { theme } = useSystemTheme();
@@ -22,6 +32,7 @@ function App() {
       </Helmet>
       <ThemeProvider theme={theme}>
         <CssBaseline />
+        <StyledContainer />
         <SearchAppBar />
         {/* TODO: delete */}
         <Toolbar />
